@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+.btnL {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 4px #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btnAdd-wrap & {
+        display: inline-flex;
+        margin-right: 12px;
+    }
+}

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+.btnAdd {
+    position: fixed;
+    right: 24px;
+    bottom: 40px;
+
+    &.--hide {
+        display: none;
+    }
+}

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+#root {
+  width: 100%;
+}
+
+.app {
+  background: linear-gradient(-220deg, $bg_01, $bg_01 10%, $bg_02);
+}

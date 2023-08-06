@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="28" viewBox="0 0 24 28">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="wrap" width="24" height="28" transform="translate(749.53 572.66)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="icon-remove" transform="translate(-749.53 -572.66)" clip-path="url(#clip-path)">
+    <g id="icon-remove-2" data-name="icon-remove" transform="translate(2.072 2.583)">
+      <path id="パス_18" data-name="パス 18" d="M0,0H19.557" transform="translate(749.458 575.333)" fill="none" stroke="#0d5267" stroke-linecap="round" stroke-width="2.4"/>
+      <path id="パス_11" data-name="パス 11" d="M743.523,568.5v20.308h16.643V568.5Z" transform="translate(7.391 6.833)" fill="none" stroke="#0d5267" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"/>
+      <line id="線_2" data-name="線 2" y2="14.199" transform="translate(756.98 578.342)" fill="none" stroke="#0d5267" stroke-linecap="round" stroke-width="1.4"/>
+      <line id="線_3" data-name="線 3" y2="14.199" transform="translate(761.493 578.342)" fill="none" stroke="#0d5267" stroke-linecap="round" stroke-width="1.4"/>
+      <path id="パス_16" data-name="パス 16" d="M0,0H7.522" transform="translate(755.475 572.076)" fill="none" stroke="#0d5267" stroke-linecap="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

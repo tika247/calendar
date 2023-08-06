@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+@use "src/scss/settings/mixin.scss" as *;
+
+.btnM {
+    width: 24px;
+    height: 24px;
+    background-color: $color_02;
+    box-shadow: 0 0 4px #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

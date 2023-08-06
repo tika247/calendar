@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+.btnBox {
+    text-align: center;
+
+    &__box {
+        display: inline-flex;
+        gap: 0 16px;
+    }
+
+    &__btn {
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        box-shadow: 0 0 4px #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

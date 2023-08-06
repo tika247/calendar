@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+.modeDaily {
+    width: 100%;
+
+    &__hdg {
+        position: relative;
+        font-size: 2.4rem;
+        color: $color_01;
+        text-align: center;
+        margin-bottom: 24px;
+        font-weight: 400;
+    }
+
+    &__inner {
+        display: flex;
+    }
+
+    &__wrap {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px 0;
+    }
+}

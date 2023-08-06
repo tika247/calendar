@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+.mode {
+    width: 100%;
+
+    &__header {
+        position: relative;
+        text-align: center;
+        margin-bottom: 24px;
+
+        h2 {
+            display: inline-block;
+            font-size: 3.2rem;
+            color: #fff;
+            margin-bottom: 11px;
+        }
+    }
+
+    &__contents {
+        padding: 32px 20px;
+        background-color: $bg_04;
+        backdrop-filter: blur(30px) brightness(1.5);
+    }
+}

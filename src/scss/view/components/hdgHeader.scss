@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+.hdgHeader {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 56px;
+
+    &__text {
+        font-size: 3.2rem;
+        color: #fff;
+        margin-bottom: 11px;
+    }
+
+    &__btn {
+        &.--left {
+            transform: translate(16px, -5px);
+        }
+
+        &.--right {
+            transform: translate(-16px, -5px);
+        }
+    }
+}

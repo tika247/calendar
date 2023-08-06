@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+$padding: 8px;
+
+.boxSchedule {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: $padding;
+    background-color: $bg_06;
+    backdrop-filter: blur(3px) brightness(0.3);
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+
+    &:nth-child(even) {
+        background-color: $bg_07;
+    }
+
+    &__time {
+        display: block;
+        font-size: 1.2rem;
+        color: $color_01;
+        margin-bottom: 8px;
+    }
+
+    &__title {
+        font-size: 1.6rem;
+        color: #fff;
+    }
+
+    &__memo {
+        font-size: 1.4rem;
+        color: $color_02;
+    }
+
+    &__btnWrap {
+        position: absolute;
+        top: $padding;
+        right: $padding;
+        display: flex;
+        gap: 0 8px;
+    }
+
+    &__btn {
+        width: 26px;
+        height: 26px;
+        padding: 6px;
+        background-color: $color_02;
+        box-shadow: 0 0 1px #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

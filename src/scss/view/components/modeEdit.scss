@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+.modeEdit {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 24px 0;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 6px 0;
+
+        >label {
+            color: #fff;
+            font-size: 1.4rem;
+        }
+
+        input,
+        textarea {
+            background-color: $bg_03;
+            backdrop-filter: blur(30px) brightness(1.5);
+            padding: 4px 8px;
+            color: #fff;
+        }
+    }
+
+    input {
+        &[type="date"]::-webkit-calendar-picker-indicator,
+        &[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(60%) sepia(50%) saturate(300%) hue-rotate(150deg) brightness(150%) contrast(100%);
+            transform: translateX(5px);
+        }
+    }
+
+    &__time {
+        input {
+            width: 140px;
+        }
+    }
+    
+    &__timeRange {
+        display: flex;
+        gap: 0 8px;
+        margin-top: 8px;
+
+        >span {
+            color: #fff;
+            transform: translateY(5px);
+        }
+    }
+}
