@@ -49,6 +49,7 @@ function ModeEdit() {
                 return res.data
             })
             .catch((err: ErrorEvent) => {
+                if(typeof ERROR_SCHEDULE.axiosError !== 'function') return;
                 throw new Error(ERROR_SCHEDULE.axiosError(err));
             });
 

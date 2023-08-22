@@ -53,6 +53,7 @@ function ModeAdd() {
     }
     /**
      * add schedule
+     * @todo config.jsonにaddScheduleできない
      */
     const addSchedule = async () => {
         const newUserSchedule = await getNewUserSchedule(currentEntered);
@@ -103,6 +104,7 @@ function ModeAdd() {
                 return res.data
             })
             .catch((err: ErrorEvent) => {
+                if(typeof ERROR_SCHEDULE.axiosError !== 'function') return;
                 throw new Error(ERROR_SCHEDULE.axiosError(err));
             });
 

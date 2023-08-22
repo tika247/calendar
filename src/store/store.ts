@@ -59,7 +59,7 @@ const reduxSlice = createSlice({
     "updateCurrentMode": (state, action: PayloadAction<CurrentModeType>) => {
       state.currentMode = action.payload;
     },
-    "updateeditTarget": (state, action: PayloadAction<ScheduleType>) => {
+    "updateEditTarget": (state, action: PayloadAction<ScheduleType>) => {
       state.editTarget = action.payload;
     },
     "updateSchedule": (state, action: PayloadAction<[ScheduleType]>) => {

@@ -2,11 +2,11 @@
 
 @use "src/scss/settings/setting.scss" as *;
 
-:is(.logIn)>*:last-child {
+:is(.signUp)>*:last-child {
     margin-bottom: 0;
 }
 
-.logIn {
+.signUp {
     min-height: 100vh;
     display: flex;
     justify-content: center;

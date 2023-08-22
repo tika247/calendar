@@ -1,12 +1,16 @@
 import 'src/scss/view/components/btnM.scss';
-import logout from 'src/img/icon-logout.svg';
+import logOut from 'src/img/icon-logOut.svg';
 import help from 'src/img/icon-help.svg';
+import logIn from 'src/img/icon-logIn.svg';
+import signUp from 'src/img/icon-signUp.svg';
 import type { BtnMProps } from 'src/const/type'
 
 function BtnM(props: BtnMProps) {
     const img: { [key: string]: string } = {
-        "logout": logout,
-        "help": help,
+        'logOut': logOut,
+        'help': help,
+        'logIn': logIn,
+        'signUp': signUp,
     }
     const clickMethod = () => {
         if(!props.onClickMethod) return;
@@ -14,8 +18,9 @@ function BtnM(props: BtnMProps) {
         props.onClickMethod()
     }
     return (
-        <button className="btnM">
-            <img src={img[props.btnType]} alt={props.alt} onClick={clickMethod} />
+        <button className='btnM' onClick={clickMethod}>
+            <p className='btnM__text'>{props.tooltip}</p>
+            <img src={img[props.btnType]} alt={props.alt} />
         </button>
     )
 }

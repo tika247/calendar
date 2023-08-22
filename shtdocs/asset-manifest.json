@@ -1,12 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.fe991a3f.css",
-    "main.js": "/static/js/main.79bcde1f.js",
+    "main.css": "/static/css/main.f984c2ab.css",
+    "main.js": "/static/js/main.d487d897.js",
     "static/js/787.8facffb1.chunk.js": "/static/js/787.8facffb1.chunk.js",
     "static/media/icon-edit.svg": "/static/media/icon-edit.234b57ff463a41a21b4225af82b99d21.svg",
     "static/media/icon-remove.svg": "/static/media/icon-remove.2ffe3cbec24c46cd369e12ff82e72f98.svg",
+    "static/media/icon-signUp.svg": "/static/media/icon-signUp.c74be797cb6295915afe1919b1edebf8.svg",
     "static/media/icon-help.svg": "/static/media/icon-help.8a1cf88a92603b927912d63e42cf3483.svg",
-    "static/media/icon-logout.svg": "/static/media/icon-logout.35ed14153b83abd7e43aec80332243e6.svg",
+    "static/media/icon-logIn.svg": "/static/media/icon-logIn.b3fde0d36505fe97cea842329fe2d8b8.svg",
+    "static/media/icon-logOut.svg": "/static/media/icon-logOut.35ed14153b83abd7e43aec80332243e6.svg",
     "index.html": "/index.html",
     "static/media/icon-arrowRight.svg": "/static/media/icon-arrowRight.17fbef99283e7a6ac561bb00bbcead16.svg",
     "static/media/icon-arrowLeft.svg": "/static/media/icon-arrowLeft.e7b1f153e7ee612754f9122608ee69f2.svg",
@@ -14,12 +16,12 @@
     "static/media/icon-add.svg": "/static/media/icon-add.86ca72c77755c56da07c5791c4188725.svg",
     "static/media/icon-back.svg": "/static/media/icon-back.b1f6f42ab1fb030a37d9ad6b7fab6e05.svg",
     "static/media/icon-ok.svg": "/static/media/icon-ok.041eee16ae67d2564353961790a5b5ce.svg",
-    "main.fe991a3f.css.map": "/static/css/main.fe991a3f.css.map",
-    "main.79bcde1f.js.map": "/static/js/main.79bcde1f.js.map",
+    "main.f984c2ab.css.map": "/static/css/main.f984c2ab.css.map",
+    "main.d487d897.js.map": "/static/js/main.d487d897.js.map",
     "787.8facffb1.chunk.js.map": "/static/js/787.8facffb1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe991a3f.css",
-    "static/js/main.79bcde1f.js"
+    "static/css/main.f984c2ab.css",
+    "static/js/main.d487d897.js"
   ]
 }

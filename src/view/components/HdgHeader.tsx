@@ -18,9 +18,9 @@ function HdgHeader() {
     /**
      * get header text
      * @returns {string}
-     */
-    const getHeaderText = () => {
-        const monthEn = getMonthInEn(Number(calendarMonth));
+    */
+   const getHeaderText = () => {
+       const monthEn = getMonthInEn(Number(calendarMonth));
 
         return `${monthEn} ${calendarYear}`
     }

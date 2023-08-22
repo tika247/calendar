@@ -1,15 +1,15 @@
 import { useCallback } from 'react';
-import 'src/scss/view/components/logInArrow.scss';
+import 'src/scss/view/components/signUpArrow.scss';
 import { myAxios } from 'src/const/myAxios';
-import { ERROR_LOGIN } from 'src/const/errorMessage';
+import { ERROR_SIGNUP } from 'src/const/errorMessage';
 import { CustomDispatch } from 'src/store/operator';
-import type { LogInBoxArrowType, ResRegisterUserType } from 'src/const/type';
+import type { SignUpArrowType, ResRegisterUserType } from 'src/const/type';
 import { goToHomePage } from 'src/modules/goToHomePage';
 import { setLocalStorageToken } from 'src/modules/setLocalStorageToken';
 import { switchArrowClickable } from 'src/modules/switchArrowClickable';
 import { useNavigate } from 'react-router-dom';
 
-function LogInBoxArrow(props: LogInBoxArrowType) {
+function SignUpArrow(props: SignUpArrowType) {
     const customDispatch = CustomDispatch();
     const navigate = useNavigate();
     const { enteredText } = props;
@@ -28,7 +28,10 @@ function LogInBoxArrow(props: LogInBoxArrowType) {
         let errorMessage = null;
 
         const condition1 = Object.values(enteredText).some((val) => val.length === 0);
-        if (condition1) errorMessage = ERROR_LOGIN.empty;
+        if (condition1) errorMessage = ERROR_SIGNUP.empty;
+
+        const condition2 = enteredText['password'] === enteredText['repeatPassword'];
+        if (!condition2) errorMessage = ERROR_SIGNUP.repeatPassword;
 
         if (errorMessage) alert(errorMessage);
 
@@ -39,11 +42,11 @@ function LogInBoxArrow(props: LogInBoxArrowType) {
      * get session ID from server
      * @returns {Promise<string | null>} errorMessage || null
      */
-    const authenticateUser = async (): Promise<string | null> => {
+    const registerUser = async (): Promise<string | null> => {
         if (!enteredText) return null;
 
         const params = {
-            reqType: 'authenticateUser',
+            reqType: 'registerUser',
             username: enteredText.username,
             password: enteredText.password
         }
@@ -78,7 +81,7 @@ function LogInBoxArrow(props: LogInBoxArrowType) {
      * @param {string} resErrorMessage
      */
     const alertErrorMessage = (resErrorMessage: string) => {
-        alert(ERROR_LOGIN[resErrorMessage]);
+        alert(ERROR_SIGNUP[resErrorMessage]);
     }
 
     /**
@@ -88,7 +91,7 @@ function LogInBoxArrow(props: LogInBoxArrowType) {
         async () => {
             const result = await validateEnterBox();
             if (!result) return;
-            const resErrorMessage = await authenticateUser();
+            const resErrorMessage = await registerUser();
             if (!resErrorMessage) return;
             alertErrorMessage(resErrorMessage);
         },
@@ -96,7 +99,7 @@ function LogInBoxArrow(props: LogInBoxArrowType) {
     );
 
     return (
-        <div className='logInArrow'>
+        <div className='signUpArrow'>
             <button onClick={handleArrowClicked} aria-disabled={`${switchArrowClickable(enteredText) ? 'true' : 'false'}`}>
                 <svg xmlns='http://www.w3.org/2000/svg' width='17.174' height='7.4' viewBox='0 0 17.174 7.4'>
                     <path id='path' d='M-192.974,375.821h16.316' transform='translate(192.974 -372.121)' fill='none' stroke='#95bbca' strokeLinecap='round' strokeWidth='1' />
@@ -108,4 +111,4 @@ function LogInBoxArrow(props: LogInBoxArrowType) {
     )
 }
 
-export default LogInBoxArrow;
+export default SignUpArrow;

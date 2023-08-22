@@ -18,7 +18,7 @@ function BoxSchedule(props: { schedule: ScheduleType }) {
 
     const editTarget = () => {
         customDispatch("updateCurrentMode", "edit");
-        customDispatch("updateeditTarget", schedule);
+        customDispatch("updateEditTarget", schedule);
     }
     const removeSchedule = async () => {
         if (!token) return;

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+.enterBox {
+        display: flex;
+        flex-direction: column;
+        gap: 4px 0;
+        margin-bottom: 8px;
+
+        >span {
+            font-size: 1.6rem;
+            color: $color_01;
+        }
+
+        >input {
+            width: 240px;
+            padding: 4px 8px;
+            color: #fff;
+            background-color: $bg_03;
+            backdrop-filter: blur(30px) brightness(1.5);
+        }
+}

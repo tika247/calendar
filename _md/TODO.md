@@ -1,12 +1,7 @@
 ## NEXT
 
-- 複数人同時接続を可能にする
-    - `$_SESSION["token"]`と`$_SESSION["userID"]`を`$_SESSION["{任意文字列}"] = [$_SESSION["token"], $_SESSION["userID"]]`にする
-- sessionStorageをsetcookieにする。tech_memoのsessionSecureを参照する
-- validaton in LogIn.tsx
-- Axiosに対してBearer認証とInterceptorsの導入を検討する
-- learn usage of MySQL
-- PHP_MySQL (data will be stored in MySQL)
+- changeHTMLSpecialChars()
+- validation in PHP
 
 ## Authentication
 
@@ -22,6 +17,8 @@
 [B] 正しいトークンだったら、ユーザー情報を返します
 [F] 以降トークンを使ってユーザー情報にアクセスできるようになります。
 
-## TODO
+## Consider
 
-- consider `slim` as a framework
+- ユーザー情報をconfigファイルからMySQLに移す
+    - https://www.sejuku.net/blog/9021
+- PHP_MySQL (data will be stored in MySQL)

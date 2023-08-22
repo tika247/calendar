@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="404 page of Calendar application created by create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" crossorigin="use-credentials" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: "Roboto", "Hiragino Kaku Gothic Pro", "Yu Gothic Medium", "游ゴシック Medium", yugothic, "游ゴシック体", meiryo, sans-serif;
+        height: 100vh;
+        background: linear-gradient(-220deg, #075561, #075561 10%, #000D4D); /* should be same with App.scss*/
+        color: #fff;
+        padding: 0 20px; /* should be same with App.scss*/
+      }
+      .page404 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 8px 0;
+        margin-top: -80px;
+      }
+      .page404__num {
+        display: block;
+        font-size: 4rem;
+        text-align: center;
+      }
+      .page404__text {
+        display: block;
+        font-size: 1.6rem;
+        text-align: center;
+        font-weight: bold;
+      }
+      .page404__small {
+        font-size: 1.2rem;
+        text-align: center;
+        line-height: 1.6;
+      }
+      .page404__transfer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0 16px;
+      }
+      .page404__transfer > p {
+        font-size: 1.4rem;
+      }
+      .page404__transfer > a {
+        position: relative;
+        display: block;
+        width: 32px;
+        height: 32px;
+        background-color: #fff;
+        box-shadow: 0 0 4px #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .page404__transfer > a::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-top: solid 2px #0D5267;
+        border-right: solid 2px #0D5267;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-135deg);
+      }
+      .page404__transfer > a > span {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 2px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page404">
+      <span class='page404__num'>404</span>
+      <span class='page404__text'>Not Found</span>
+      <p class='page404__small'>The resource requested could not be found on this server!</p>
+    </div>
+    <div class="page404__transfer">
+      <a href="/"><span>Transfer to log-in-page</span></a>
+      <p aria-hidden="true">Transfer to log-in-page</p>
+    </div>
+  </body>
+</html>

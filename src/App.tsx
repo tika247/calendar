@@ -4,13 +4,14 @@ import LogIn from "src/view/LogIn";
 import LogOut from "src/view/LogOut";
 import Help from "src/view/Help";
 import Home from "src/view/Home";
-import { CtxHook } from 'src/const/context';
+import SignUp from "src/view/SignUp";
 import { CustomSelector, CustomDispatch } from 'src/store/operator';
 import { CurrentModeType } from 'src/const/type';
 import { useEffect } from 'react';
 import { myAxios } from 'src/const/myAxios';
 import type { ScheduleType } from 'src/const/type'
 import { getToday } from 'src/modules/getToday';
+import { getCalendarTime } from 'src/modules/getCalendarTime';
 
 /**
  * App
@@ -19,16 +20,6 @@ import { getToday } from 'src/modules/getToday';
 function App() {
   const customDispatch = CustomDispatch();
   const currentMode = CustomSelector("currentMode") as CurrentModeType;
-
-  /**
-   * set CtxHookValue
-  */
-  const isDev = false;
-  const setCtxHookValue = () => {
-    return {
-      isDev: isDev,
-    }
-  }
 
   /**
  * get session id from local storage
@@ -72,7 +63,7 @@ function App() {
     const params = {
       reqType: "getInitialSchedule",
       token: getLocalStorageToken(),
-      userID: Number(userID),
+      userID: userID,
     }
 
     const res: Promise<[ScheduleType]> = await myAxios.post("", params)
@@ -84,18 +75,6 @@ function App() {
       });
 
     customDispatch("updateSchedule", res);
-  }
-
-  /**
-   * get calendar time
-   * @returns 
-   */
-  const getCalendarTime = () => {
-    const today = getToday();
-    return {
-      calendarYear: today[0],
-      calendarMonth: today[1],
-    }
   }
 
   /**
@@ -119,6 +98,7 @@ function App() {
       <Route path="/logIn" element={<LogIn />} />
       <Route path="/logOut" element={<LogOut />} />
       <Route path="/help" element={<Help />} />
+      <Route path="/signUp" element={<SignUp />} />
     </Routes>;
 
     const notExisit = <Routes>
@@ -127,9 +107,10 @@ function App() {
       <Route path="/logIn" element={<LogIn />} />
       <Route path="/logOut" element={<LogOut />} />
       <Route path="/help" element={<Help />} />
+      <Route path="/signUp" element={<SignUp />} />
     </Routes>;
 
-    const result = (token && !isDev) ? exist : notExisit;
+    const result = (token) ? exist : notExisit;
     return result;
   }
 
@@ -152,11 +133,9 @@ function App() {
 
   return (
     <div className='app'>
-      <CtxHook.Provider value={setCtxHookValue()}>
-        <Router>
-          {getFirstPage()}
-        </Router>
-      </CtxHook.Provider>
+      <Router>
+        {getFirstPage()}
+      </Router>
     </div>
   )
 }

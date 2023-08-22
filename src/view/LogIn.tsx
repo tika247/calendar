@@ -1,32 +1,24 @@
 import { useState, useEffect, useCallback } from 'react';
 import 'src/scss/view/logIn.scss';
-import LogInBox from "src/view/components/LogInBox";
-import LogInArrow from "src/view/components/LogInArrow";
+import { useNavigate } from "react-router-dom";
+import BtnM from 'src/view/components/BtnM';
+import EnterBox from 'src/view/components/EnterBox';
+import LogInArrow from 'src/view/components/LogInArrow';
 import { CustomDispatch } from 'src/store/operator';
+import { getToday } from 'src/modules/getToday';
+import { getCalendarTime } from 'src/modules/getCalendarTime';
+import { goToSignUpPage } from 'src/modules/goToSignUpPage';
 
 /**
  * log in function component
  */
 function LogIn() {
-  const [isEntered, setEntered] = useState(false);
+  const navigate = useNavigate();
   const [enteredText, setEnteredText] = useState({
-    username: "",
-    password: ""
+    username: '',
+    password: ''
   });
   const customDispatch = CustomDispatch();
-
-  /**
-   * validate entered text
-   */
-  const validateEntered = () => {
-    const condition1 = Object.values(enteredText).some((val) => val.length === 0);
-    // TODO: validation e.g. URL enconging string
-    const condition2 = true;
-    const condition = condition1 && condition2;
-
-    const enteredState = condition ? false : true;
-    setEntered(enteredState);
-  }
 
   /**
    * detect child component value and reflect it
@@ -42,23 +34,40 @@ function LogIn() {
     },
     [enteredText]
   );
+  /**
+ * set state in LogIn.tsx
+ */
+  const setAppState = () => {
+    customDispatch('updateDailyTime', getToday());
+    customDispatch('updateCalendarTime', getCalendarTime());
+  }
+
+  /**
+   * click method to sign up
+   */
+  const clickMethodToSignUp = () => {
+    goToSignUpPage(navigate);
+  }
 
   /**
   * watch value change
   */
   useEffect(() => {
-    validateEntered();
-
-    customDispatch("updateCurrentUser", enteredText);
-  }, [enteredText]);
+    setAppState();
+  }, []);
 
   return (
-    <div className="logIn">
-      <div className="contents">
-        <h2 className="hdg-02">Log In</h2>
-        <LogInBox boxName="username" onChildValueChange={handleStateChange} ></LogInBox>
-        <LogInBox boxName="password" onChildValueChange={handleStateChange} ></LogInBox>
-        <LogInArrow enteredState={isEntered}></LogInArrow>
+    <div className='logIn'>
+      <div className='logIn__contents'>
+        <div className='logIn__wrap'>
+          <h2 className='logIn__hdg'>Log In</h2>
+          <div className='logIn__signUp'>
+            <BtnM btnType='signUp' alt='transfer to sign-up-page' tooltip='sign up' onClickMethod={clickMethodToSignUp}></BtnM>
+          </div>
+        </div>
+        <EnterBox boxName='Username' stateName='username' onChildValueChange={handleStateChange} ></EnterBox>
+        <EnterBox boxName='Password' stateName='password' onChildValueChange={handleStateChange} ></EnterBox>
+        <LogInArrow enteredText={enteredText}></LogInArrow>
       </div>
     </div>
   )

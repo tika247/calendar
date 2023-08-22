@@ -9,8 +9,8 @@ namespace server\model;
  */
 class RemoveSessionStorage
 {
-    public function init()
+    public function init($token)
     {
-        session_unset();
+        session_destroy();
     }
 }

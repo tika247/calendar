@@ -1,6 +1,5 @@
 import 'src/scss/view/home.scss';
 import BtnM from 'src/view/components/BtnM';
-import BtnL from 'src/view/components/BtnL';
 import ModeNormal from 'src/view/components/ModeNormal';
 import Mode from 'src/view/components/Mode';
 import BtnAdd from 'src/view/components/BtnAdd';
@@ -21,7 +20,7 @@ function Home(props: HomeType) {
       customDispatch("updateCurrentMode", "normal")
     }
     const condition = currentMode === 'daily';
-    const buttonBack = <button className="home__back" onClick={updateCurrentMode}><img src={back} alt="" /></button>
+    const buttonBack = <button className="home__back" onClick={updateCurrentMode}><img src={back} alt="back to the previous page" /></button>
 
     return condition ? buttonBack : false;
   }
@@ -71,8 +70,8 @@ function Home(props: HomeType) {
     <div className="home">
       {getButtonBack()}
       <div className="home__btnWrap">
-        <BtnM btnType="help" alt="get help information about this App" onClickMethod={clickMethodInHelp}></BtnM>
-        <BtnM btnType="logout" alt="log out from this App" onClickMethod={clickMethodInLogOut}></BtnM>
+        <BtnM btnType="help" alt="get help information about this App" tooltip='help' onClickMethod={clickMethodInHelp}></BtnM>
+        <BtnM btnType="logOut" alt="log out" tooltip='log out' onClickMethod={clickMethodInLogOut}></BtnM>
       </div>
       {getModeComponent()}
 

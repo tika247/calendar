@@ -4,6 +4,13 @@ import store from "src/store/store";
 export type PropsType = {};
 
 /**
+ * Common
+ */
+export interface Obj<T> {
+    [key: string]: T
+};
+
+/**
  * Store
  */
 export type RootState = ReturnType<typeof store.getState>;
@@ -38,13 +45,6 @@ export interface ReduxState {
 }
 
 /**
- * Context
- */
-export interface CtxHookType {
-    isDev: boolean;
-}
-
-/**
  * Component
  */
 export type BtnBoxProps = {
@@ -59,6 +59,7 @@ export type BtnLProps = {
 export type BtnMProps = {
     btnType: string;
     alt: string;
+    tooltip: string;
     onClickMethod: Function;
 };
 export type BtnSProps = {
@@ -68,8 +69,9 @@ export interface DayType {
     id: number; // ID of the date
     value: string; // Value of the date
 }
-export type LogInBoxProps = {
+export type EnterBoxProps = {
     boxName: string;
+    stateName: string;
     onChildValueChange: Function;
 };
 export interface ModeType {
@@ -79,5 +81,9 @@ export interface HomeType {
     mode: string
 }
 export interface LogInBoxArrowType {
-    enteredState: boolean;
+    enteredText: Obj<string>;
 }
+export interface SignUpArrowType {
+    enteredText: Obj<string>;
+}
+export type ResRegisterUserType = [string, string, [ScheduleType]];

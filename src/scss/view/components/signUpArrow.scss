@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+@use "src/scss/settings/setting.scss" as *;
+
+.signUpArrow {
+    width: 100%;
+    text-align: right;
+
+    display: inline-block;
+    padding: 0 12px;
+
+    > button {
+        &[aria-disabled="false"] {
+            pointer-events: none;
+            opacity: .3;
+        }
+    }
+}

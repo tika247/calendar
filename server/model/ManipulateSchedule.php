@@ -4,11 +4,19 @@ declare(strict_types=1);
 
 namespace server\model;
 
+use server\model\DecodeHTMLSpecialChars;
+use server\model\SendRes;
+use server\model\OverWriteConfig;
+
 /**
  * Manipulate Schedule
  */
 trait ManipulateSchedule
 {
+    use DecodeHTMLSpecialChars;
+    use SendRes;
+    use OverWriteConfig;
+
 /**
  * get initial schedule
  */
@@ -21,14 +29,15 @@ trait ManipulateSchedule
                 break;
             }
         }
-        echo json_encode($schedule);
+
+        $this->sendRes($schedule);
     }
 /**
  * add new schedule
  */
     private function addSchedule()
     {
-        if ($this->token !== $_SESSION['token']) {
+        if (!(isset($_SESSION['userID']))) {
             return;
         }
 
@@ -64,9 +73,10 @@ trait ManipulateSchedule
             return;
         }
 
-        $newConfig = json_encode($this->config, JSON_UNESCAPED_UNICODE);
-        file_put_contents($this->configPath, $newConfig); // = fopen(), fwrite(),  fclose()
-        echo json_encode($newUserSchedule);
+        $this->config = $this->decodeHTMLSpecialChars($this->config);
+        $this->overWriteConfig($this->configPath, $this->config);
+
+        $this->sendRes($newUserSchedule);
     }
 
 /**
@@ -74,7 +84,7 @@ trait ManipulateSchedule
  */
     private function editSchedule()
     {
-        if ($this->token !== $_SESSION['token']) {
+        if (!(isset($_SESSION['userID']))) {
             return;
         }
 
@@ -92,9 +102,10 @@ trait ManipulateSchedule
 
         $newUserSchedule = $this->config['userList'][$index]["schedule"];
 
-        $newConfig = json_encode($this->config, JSON_UNESCAPED_UNICODE);
-        file_put_contents($this->configPath, $newConfig);
-        echo json_encode($newUserSchedule);
+        $this->config = $this->decodeHTMLSpecialChars($this->config);
+        $this->overWriteConfig($this->configPath, $this->config);
+
+        $this->sendRes($newUserSchedule);
     }
 
 /**
@@ -102,7 +113,7 @@ trait ManipulateSchedule
  */
     private function removeSchedule()
     {
-        if ($this->token !== $_SESSION['token']) {
+        if (!(isset($_SESSION['userID']))) {
             return;
         }
 
@@ -118,9 +129,10 @@ trait ManipulateSchedule
 
         $newUserSchedule = $this->config['userList'][$index]["schedule"];
 
-        $newConfig = json_encode($this->config, JSON_UNESCAPED_UNICODE);
-        file_put_contents($this->configPath, $newConfig);
-        echo json_encode($newUserSchedule);
+        $this->config = $this->decodeHTMLSpecialChars($this->config);
+        $this->overWriteConfig($this->configPath, $this->config);
+
+        $this->sendRes($newUserSchedule);
     }
 
 /**

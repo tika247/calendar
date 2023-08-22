@@ -4,6 +4,9 @@
 @use "src/scss/settings/mixin.scss" as *;
 
 .btnM {
+    $root: &;
+
+    position: relative;
     width: 24px;
     height: 24px;
     background-color: $color_02;
@@ -12,4 +15,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include hover {
+        > #{$root}__text {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    
+    &__text {
+        position: absolute;
+        top: -24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $bg_04;
+        color: $color_01;
+        font-size: 1.2rem;
+        white-space: nowrap;
+        visibility: hidden;
+        opacity: 0;
+        transition: .6s visibility ease-in-out, .3s opacity ease-in-out;
+    }
 }

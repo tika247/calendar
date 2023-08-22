@@ -4,12 +4,16 @@ import BtnBox from "src/view/components/BtnBox";
 import { goToHomePage } from 'src/modules/goToHomePage';
 import { goToLogInPage } from 'src/modules/goToLogInPage';
 import { useNavigate } from "react-router-dom";
+import { CustomDispatch } from 'src/store/operator';
+import { getStoredToken } from 'src/modules/getStoredToken';
 
 /**
  * log in function component
  */
 function LogOut() {
   const navigate = useNavigate();
+  const customDispatch = CustomDispatch();
+  const token = getStoredToken();
 
   /**
    * cancel button clicked method
@@ -24,9 +28,15 @@ function LogOut() {
   const removeStorage = async () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userID');
+  }
 
+  /**
+   * remove PHP session
+   */
+  const removePHPSession = async () => {
     const params = {
-      reqType: "removeSessionStorage"
+      reqType: "removeSessionStorage",
+      token: token,
     }
 
     await myAxios.post("", params)
@@ -39,10 +49,47 @@ function LogOut() {
   }
 
   /**
+   * reset redux
+   */
+  const resetRedux = async () => {
+    customDispatch("updateCurrentUser", {
+      username: null,
+      password: null,
+    });
+    customDispatch("updateDailyTime", ['', '', '', '']);
+    customDispatch("updateToken", null);
+    customDispatch("updateCurrentMode", 'normal');
+    customDispatch("updateSchedule", [
+      {
+        id: "",
+        title: "",
+        date: "",
+        timeFrom: "",
+        timeTo: "",
+        memo: ""
+      }
+    ]);
+    customDispatch("updateEditTarget", {
+      id: "",
+      title: "",
+      date: "",
+      timeFrom: "",
+      timeTo: "",
+      memo: ""
+    });
+    customDispatch("updateCalendarTime", {
+      calendarYear: "0",
+      calendarMonth: "0",
+    });
+  }
+
+  /**
    * check button clicked method
    */
   const checkMethod = async () => {
     await removeStorage();
+    await removePHPSession();
+    await resetRedux();
     goToLogInPage(navigate);
   }
 
