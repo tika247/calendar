@@ -40,7 +40,7 @@ function ModeDaily() {
 
             if (schedule.date !== time) return;
 
-            const boxSchedule = <BoxSchedule schedule={schedule}></BoxSchedule>;
+            const boxSchedule = <BoxSchedule schedule={schedule} key={schedule.id}></BoxSchedule>;
             return boxSchedule;
         });
     }
